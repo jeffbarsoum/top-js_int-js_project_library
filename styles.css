@@ -1,0 +1,237 @@
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  /* 2. Remove default margin */
+  * {
+    margin: 0;
+  }
+  
+  body {
+    /* 3. Add accessible line-height */
+    line-height: 1.5;
+    /* 4. Improve text rendering */
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  /* 5. Improve media defaults */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  
+  /* 6. Inherit fonts for form controls */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  
+  /* 7. Avoid text overflows */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  
+  /* 8. Improve line wrapping */
+  p {
+    text-wrap: pretty;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+  }
+  
+  /*
+    9. Create a root stacking context
+  */
+  #root, #__next {
+    isolation: isolate;
+  }
+
+  :root {
+    --color-dark-purple: #69306D;
+    --color-dark-green: #133F2A;
+    --color-dark-blue: #0E103D;
+    
+    --color-light-white: #F0F7F4;
+    --color-light-green: #A2E3C4;
+    --color-light-grey: #B3BFB8;
+
+    --color-mid-grey: #7E8D85;
+    --color-mid-green: #3C493F;
+
+    --library-gap:20px;
+    --book-gap: 5px;
+
+    --border-radius: 10px;
+    --button-radius: 25px;
+
+    --header-font-size: 2rem;
+    --footer-font-size: 1.5rem;
+    --sidebar-font-size: 1.5rem
+
+  }
+
+  .page {
+    font-family: 'Bagnard';
+    height: 100vh;
+    
+    color: var(--color-light-green);
+    display: grid;
+    grid-template: 1fr 5fr / minmax(min-content, 1fr) 4fr;
+    grid-template-areas: 
+        "header header"
+        "sidebar library"
+        "sidebar footer";
+  }
+
+  .page > .header {
+    grid-area: header;
+    font-size: var(--header-font-size);
+    background-color: var(--color-dark-purple);
+    display: grid;
+    grid-template-columns: minmax(min-content, 1fr) 4fr;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .header-logo {
+    object-fit: contain;
+    max-width: 75px;
+  }
+
+  .sidebar {
+    grid-area: sidebar;
+    background-color: var(--color-dark-green);
+    font-size: var(--sidebar-font-size);
+    display: grid;
+    grid-template-columns: minmax(min-content, 1fr);
+    white-space: nowrap;
+    padding: 20px;
+    align-items: start;
+    text-align: center;
+    max-height: 100%;
+    overflow:auto
+  }
+
+  .sidebar-button {
+    text-decoration: none;
+    pointer-events: fill;
+    border-radius: var(--button-radius);
+    box-shadow: 0 2px var(--color-dark-blue);
+    background-color: var(--color-light-green);
+    color: var(--color-dark-green);
+  }
+
+  .sidebar-button:hover {
+    box-shadow: 0 5px var(--color-dark-blue);
+    transform: translateY(-3px);
+    transition: 100ms;
+    cursor: pointer;
+  }
+
+  .sidebar-button:active {
+    background-color: var(--color-dark-blue);
+    color: var(--color-light-green);
+    transform: translateY(4px);
+    box-shadow: 0 1px var(--color-dark-blue);
+    /* pointer-events: none; */
+    /* transition: 300ms; */
+  }
+
+  #library {
+    grid-area: library;
+    background-color: var(--color-dark-blue);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--library-gap);
+  }
+
+  .book-entry {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: var(--book-gap);
+    border-radius: var(--border-radius);
+    background-color: var(--color-light-green);
+    color: var(--color-dark-blue);
+    box-shadow: 0 5px var(--color-mid-grey);
+    border-left: 10px var(--color-dark-purple);
+  }
+
+  .is-read {
+    color: var(--color-light-green);
+    background-color: var(--color-dark-blue);
+  }
+
+  .page > .footer {
+    grid-area: footer;
+    font-size: var(--footer-font-size);
+    background-color: var(--color-dark-purple);
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  dialog::backdrop {
+    background: var(--color-dark-blue);
+    opacity: 0.75;
+  }
+
+  .modal {
+    visibility: hidden;
+  }
+
+  .modal > .background {
+    background-color: var(--color-dark-blue);
+    opacity: 0.75;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    position: fixed;
+    overflow: auto;
+  }
+
+  .modal > .box {
+    position: absolute;
+    /* visibility: hidden; */
+    display: grid;
+    grid-template-rows: 1fr 4fr 1fr;
+    z-index: 10;
+    max-width: 40vw;
+    max-height: 40vh;
+    top: 50%;
+    left: 50%;
+    background-color: var(--color-light-green);
+    color: var(--color-dark-blue);
+    border-radius: var(--border-radius);
+  }
+
+  .modal > .box > .header {
+    display: grid;
+    grid-template-columns: 7fr 1fr;
+    background-color: var(--color-mid-grey);
+    color: var(--color-dark-blue);
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+  }
+
+  .modal > .box > .footer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
+    gap: 1fr;
+    background-color: var(--color-mid-grey);
+    color: var(--color-dark-blue);
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+  }
+
+  .dialog-entry-add-library {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+  }
+
+
+
+ 
