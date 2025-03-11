@@ -85,16 +85,15 @@ const functions = {
     document.getElementById('library').replaceChildren()
   }
 
-  // fix this
   function addBook(e) {
     const form = document.getElementById('form-add-book');
+    // console.log(form)
     const newBook = new lib.Book(form['title'], form['author'], form['pages'], form['isRead'])
     const libraryElement = document.getElementById('library');
-    libraryElement.appendChild(lib.bookEntry(newBook));
+    libraryElement.appendChild(newBook.div);
     form.reset();
     closeModal(e);
   }
-
 
   function removeBook(e) {
     const bookId = e.target.parentNode.getAttribute('id');
