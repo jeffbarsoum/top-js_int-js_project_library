@@ -143,7 +143,16 @@ const functions = {
 
   function removeMoveHandler(e) {
     // const box = e.target.classList.contains('header*') ? e.target.closest('.box') : e.target;
-    e.target.removeEventListener('mousemove', moveHandler);
+    const moveListenerElements = document.querySelectorAll('[data-events*=mousemove-moveHandler]')
+    console.log('removeMoveHandler launched...')
+    // e.target.removeEventListener('mousemove', moveHandler);
+    removeEventListenerTag(e.target, 'mousemove-moveHandler')
+    console.log(moveListenerElements)
+    for (const elem of moveListenerElements) {
+      // elem.removeEventListener('mousemove', moveHandler)
+      removeEventListenerTag(elem, 'mousemove-moveHandler')
+      console.log(`removed movehandler from ${elem}`)
+    }
   }
 
   function moveHandler(e) {
