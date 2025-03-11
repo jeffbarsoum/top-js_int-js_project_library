@@ -1,20 +1,39 @@
-const library = {};
+const library = new Library();
 
 
 function Book(title, author, pages, isRead = false) {
-    this.id = crypto.randomUUID();
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.isRead = isRead;
-    this.info = () => {
-        const _isRead = isRead ? 'finished' : 'not read yet'; 
-        return `${this.title} by ${this.author}, ${this.pages} pages, ${_isRead}`;
-    }
-
-    this.div = bookEntry(this)
-    library[this.id] = this;
+  this.id = crypto.randomUUID();
+  this.title = title;
+  this.author = author;
+  this.pages = pages;
+  this.isRead = isRead;
+  this.info = () => {
+      const _isRead = isRead ? 'finished' : 'not read yet'; 
+      return `${this.title} by ${this.author}, ${this.pages} pages, ${_isRead}`;
   }
+  this.bookEntry = bookEntry;
+  this.div = this.bookEntry(this)
+
+
+  // add to library
+  library.addBook(this);
+}
+
+function Library() {
+  this.collection = {}
+  this.addBook = (book) => {
+    this.collection[book.id] = book;
+  }
+  this.removeBook = (id) => {
+    delete this.collection[id]
+  }
+  this.getBook = (id) => {
+    return this.collection[id];
+  }
+  this.getAllBooks = () => {
+    return this.collection;
+  }
+}
 
 function bookEntry(book) {
   const bookDiv = document.createElement('div');
@@ -28,8 +47,8 @@ function bookEntry(book) {
     console.log([key, input]);
     switch (key) {
       case 'id':
-      bookDiv.setAttribute('id', input);
-      continue;
+        bookDiv.setAttribute('id', input);
+        continue;
       case 'isRead':
         if(input.checked) {bookDiv.classList.add('is-read');}
         continue;
