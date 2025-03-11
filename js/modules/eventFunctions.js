@@ -74,8 +74,8 @@ const functions = {
     const libraryElement = document.getElementById('library');
     libraryElement.replaceChildren();
     // console.log(document.getElementById('library'))
-    // console.log(lib.library)
-    for (const [bookId, book] of Object.entries(lib.library)) {
+    console.log('display library launched...')
+    for (const book of Object.values(lib.library.getAllBooks())) {
       console.log(book)
       libraryElement.appendChild(book.div);
     }
