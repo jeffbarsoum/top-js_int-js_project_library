@@ -144,24 +144,47 @@
     grid-area: library;
     background-color: var(--color-dark-blue);
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template: repeat(auto-fill, minmax(40px, 1fr)) / 1fr;
     gap: var(--library-gap);
+    align-items: start;
   }
 
   .book-entry {
-    display: flex;
-    flex-wrap: nowrap;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 4fr 1fr;
+    max-height: 100px;
     gap: var(--book-gap);
     border-radius: var(--border-radius);
     background-color: var(--color-light-green);
     color: var(--color-dark-blue);
     box-shadow: 0 5px var(--color-mid-grey);
     border-left: 10px var(--color-dark-purple);
+    text-align: center;
+    /* align-self: start; */
+  }
+
+  .book-entry > .card-link {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 3fr 2fr 1fr;
+    pointer-events: fill
+  }
+
+  .book-entry > .card-link:hover {
+    cursor: pointer;
+  }
+
+  .book-entry > button {
+    border-radius: var(--button-radius);
+    color: var(--color-light-green);
+    background-color: #69306D;
   }
 
   .is-read {
     color: var(--color-light-green);
     background-color: var(--color-dark-blue);
+    border: 1px solid var(--color-mid-grey);
   }
 
   .page > .footer {
