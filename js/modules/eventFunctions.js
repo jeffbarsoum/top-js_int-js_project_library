@@ -194,7 +194,7 @@ const functions = {
   }
   
   function addEventListeners(listenElement = null) {
-    const eventElements = listenElement ? [listenElement] : document.querySelectorAll('[data-events]');
+    const eventElements = listenElement ? [listenElement].flat() : document.querySelectorAll('[data-events]');
     // console.log(document.querySelectorAll('[data-events]'))
     for (let element of eventElements) {
     //   console.log(element.dataset);
