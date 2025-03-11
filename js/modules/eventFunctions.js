@@ -28,9 +28,17 @@ const functions = {
   const observeEvents = new MutationObserver((dataEvents) => {
     console.log('observer launcher...')
     for (const dataEvent of dataEvents) {
+      console.log(dataEvents)
+      console.log(dataEvent)
       // first, add event listeners for all new nodes
       for (const addedNode of dataEvent.addedNodes) {
-        addedNode.querySelectorAll('[data-events').forEach((element) => addEventListeners(element))
+        addedNode.querySelectorAll('[data-events').forEach((element) => {
+          addEventListeners(element)
+          console.log('observer: add node for element')
+          console.log(element)
+        });
+        console.log('observer: added listeners for added noded:')
+        console.log(addedNode)
       }
 
       // next, add / remove event listeners for changes to attributes of existing DOM elements
@@ -42,7 +50,7 @@ const functions = {
           // remove all listeners on element associated with data-events
           const oldDataValues = getElementEventFunctions(dataEvent.oldValue)
           oldDataValues.forEach(oldValObj => {
-            console.log(oldValObj)
+            // console.log(oldValObj)
             dataEvent.target.removeEventListener(oldValObj.event, oldValObj.function)
             console.log(`removed ${oldValObj}...`)
           });
