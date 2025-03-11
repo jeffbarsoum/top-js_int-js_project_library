@@ -132,13 +132,16 @@ const functions = {
 
   function closeModal(e) {
     const modal = e.target.closest('.modal');
-    console.log(modal)
+    // console.log(modal)
     modal.style.visibility = 'hidden';
   }
 
   function addMoveHandler(e) {
     // const box = e.target.classList.contains('header*') ? e.target.closest('.box') : e.target;
-    e.target.addEventListener('mousemove', moveHandler);
+    console.log('addMoveHandler launched...')
+    // e.target.addEventListener('mousemove', moveHandler);
+    addEventListenerTag(e.target.closest('.modal'), 'mousemove-moveHandler')
+    
   }
 
   function removeMoveHandler(e) {
@@ -183,6 +186,7 @@ const functions = {
   // event handlers
   function getElementEventFunctions(dataEvents) {
     // return elementId.split('-').map((word) => {word[0].toUpperCase() + word.slice(1)}).join();
+    console.log(`getelementevents: dataevents: ${dataEvents}`)
     return dataEvents
       // remove whitespace from data-events string
       .replace(/\s/g,'')
