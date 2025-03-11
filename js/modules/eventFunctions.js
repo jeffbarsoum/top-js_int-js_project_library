@@ -10,6 +10,7 @@ const functions = {
       openAddBookModal: openAddBookModal,
       openErrorModal: openErrorModal,
       closeModal: closeModal,
+      toggleIsRead: toggleIsRead,
     },
     mousedown: {
       addMoveHandler: addMoveHandler,
@@ -90,7 +91,28 @@ const functions = {
   function removeBook(e) {
     const bookId = e.target.parentNode.getAttribute('id');
     document.getElementById(bookId).remove();
-    delete lib.library[bookId];
+    lib.library.removeBook(bookId)
+  }
+
+  function toggleIsRead(e) {
+    console.log('isRead toggler launched...')
+    console.log(e.target.closest('.book-entry'))
+    const bookElement = e.target.closest('.book-entry')
+    const book = lib.library.getBook(bookElement.id);
+    console.log('book before toggle:')
+    console.log(book)
+    book.isRead = !(book.isRead);
+    console.log('book after toggle:')
+    console.log(book)
+
+    switch (book.isRead) {
+      case true:
+        bookElement.classList.remove('is-read');
+        return;
+      case false:
+        bookElement.classList.add('is-read');
+        return;
+    }
   }
 
   function openAddBookModal(e) {
