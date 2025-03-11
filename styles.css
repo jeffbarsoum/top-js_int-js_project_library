@@ -215,6 +215,7 @@
     color: var(--color-dark-blue);
     border-top-left-radius: var(--border-radius);
     border-top-right-radius: var(--border-radius);
+    user-select: none;
   }
 
   .modal > .box > .footer {
