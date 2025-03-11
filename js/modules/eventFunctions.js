@@ -156,22 +156,25 @@ const functions = {
   }
 
   function moveHandler(e) {
-    const box = e.target.classList.contains('header-text') ? e.target.closest('.box') : e.target;
-    // console.log(e.target.closest('.box'))
+    console.log('moveHandler launched...')
+    // const box = e.target.classList.contains('header-text') ? e.target.closest('.box') : e.target;
+    console.log(e.target)
+    const box = e.target.closest('.box') ?? e.target.querySelector('.box') ?? e.target.parentNode.querySelector('.box');
+    console.log(box)
     const coord = box.getBoundingClientRect()
-    const isCursorInElem = 
-      e.clientX >= coord.left 
-      && e.clientX <= coord.right
-      && e.clientY >= coord.top
-      && e.clientY <= coord.bottom;
+    // const isCursorInElem = 
+    //   e.clientX >= coord.left 
+    //   && e.clientX <= coord.right
+    //   && e.clientY >= coord.top
+    //   && e.clientY <= coord.bottom;
     
-    if (!isCursorInElem) {
-      console.log('cursor not in elem...')
-      console.log(coord)
-      console.log({clientX: e.clientX, clientY: e.clientY})
-      // e.stopPropagation();
-      e.target.removeEventListener('mousemove', moveHandler)
-    }
+    // if (!isCursorInElem) {
+    //   // console.log('cursor not in elem...')
+    //   // console.log(coord)
+    //   // console.log({clientX: e.clientX, clientY: e.clientY})
+    //   // e.stopPropagation();
+    //   removeMoveHandler(e)
+    // }
     // console.log(e)  
     box.style.top = (coord.top + e.movementY) + 'px';
     box.style.left = (coord.left + e.movementX) + 'px';
