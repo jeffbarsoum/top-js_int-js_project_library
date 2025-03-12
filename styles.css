@@ -83,6 +83,13 @@
         "sidebar footer";
   }
 
+  .page > .header,
+  .page > .sidebar,
+  .page > .footer,
+  .page button {
+    font-family: 'Bagnard';
+  }
+
   .page > .header {
     grid-area: header;
     font-size: var(--header-font-size);
