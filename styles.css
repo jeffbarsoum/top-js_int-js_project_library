@@ -154,15 +154,19 @@
     grid-area: library;
     background-color: var(--color-dark-blue);
     display: grid;
-    grid-template: repeat(auto-fill, minmax(40px, 1fr)) / 1fr;
+    grid-template: repeat(auto-fill, minmax(80px, 1fr)) / 1fr;
     gap: var(--library-gap);
     align-items: start;
+    overflow: auto;
   }
 
   .book-entry {
     display: grid;
     grid-auto-flow: column;
-    grid-template-columns: 4fr 1fr;
+    grid-template: 2fr 1fr / 4fr 1fr;
+    grid-template-areas: 
+      "card-link card-remove"
+      "card-footer card-remove";
     max-height: 100px;
     gap: var(--book-gap);
     border-radius: var(--border-radius);
@@ -171,30 +175,59 @@
     box-shadow: 0 5px var(--color-mid-grey);
     border-left: 10px var(--color-dark-purple);
     text-align: center;
+    padding: var(--book-gap);
     /* align-self: start; */
   }
 
   .book-entry > .card-link {
+    grid-area: card-link;
     display: grid;
     grid-auto-flow: column;
-    grid-template-columns: 3fr 2fr 1fr;
-    pointer-events: fill
+    grid-template-columns: 3fr 2fr 2fr;
+    grid-template-areas: 
+      "tooltiptext tooltiptext tooltiptext";
+    pointer-events: fill;
+    border-bottom: 1px solid var(--color-dark-blue);
   }
 
   .book-entry > .card-link:hover {
     cursor: pointer;
+    border: 1px solid var(--color-dark-blue);
+    border-radius: var(--border-radius);
   }
 
-  .book-entry > button {
+  .is-read > .card-link:hover {
+    cursor: pointer;
+    border: 1px solid var(--color-light-green);
+  }
+
+  .book-entry > .card-remove {
+    grid-area: card-remove;
     border-radius: var(--button-radius);
+    margin: 20px 10px;
+    padding: 10px;
     color: var(--color-light-green);
-    background-color: #69306D;
+    background-color: var(--color-dark-purple);
+    font-size: 0.75rem;
+  }
+
+  .book-entry > .card-footer {
+    grid-area: card-footer;
+    min-height: 1rem;
+    background-color: var(--color-dark-green);
+    color: var(--color-light-green);
+    border: 1px solid var(--color-light-green);
+    border-radius: var(--border-radius);
   }
 
   .is-read {
     color: var(--color-light-green);
     background-color: var(--color-dark-blue);
     border: 1px solid var(--color-mid-grey);
+  }
+
+  .is-read > .card-link {
+    border-bottom: 1px solid var(--color-light-green);
   }
 
   .page > .footer {
