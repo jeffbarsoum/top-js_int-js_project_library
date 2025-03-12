@@ -67,8 +67,12 @@ function bookEntry(book) {
   removeButton.textContent = 'Remove Book'
   removeButton.dataset.events = 'click-removeBook';
 
-  bookDiv.appendChild(linkDiv)
+  const footerDiv = document.createElement('div');
+  footerDiv.classList.add('card-footer');
+
+  bookDiv.appendChild(linkDiv);
   bookDiv.appendChild(removeButton);
+  bookDiv.appendChild(footerDiv);
 
   return bookDiv;
 }
