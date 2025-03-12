@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Infini Picto';
+    src: url('InfiniPicto-Bold.woff2') format('woff2'),
+        url('InfiniPicto-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Infini';
+    src: url('Infini-Bold.woff2') format('woff2'),
+        url('Infini-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Infini';
+    src: url('Infini-Regular.woff2') format('woff2'),
+        url('Infini-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Infini';
+    src: url('Infini-Italic.woff2') format('woff2'),
+        url('Infini-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
