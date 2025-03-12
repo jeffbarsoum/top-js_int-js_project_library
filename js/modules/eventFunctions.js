@@ -32,6 +32,7 @@ const functions = {
       console.log(dataEvent)
       // first, add event listeners for all new nodes
       for (const addedNode of dataEvent.addedNodes) {
+        if (addedNode.nodeType === Node.TEXT_NODE) {continue;}
         addedNode.querySelectorAll('[data-events').forEach((element) => {
           addEventListeners(element)
           console.log('observer: add node for element')
