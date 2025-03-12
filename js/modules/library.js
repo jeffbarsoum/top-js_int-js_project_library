@@ -74,16 +74,17 @@ function bookEntry(book) {
 }
 
 function bookKey (key, value) {
-  const [header, cell] = [document.createElement('div'), document.createElement('div')];
-  [header.textContent, cell.textContent] = [`${key.charAt(0).toUpperCase()}${key.slice(1)}:`,value]
-  header.classList.add('card-header');
-  cell.classList.add('card-cell');
+  // const [header, cell, footer] = [document.createElement('div'), document.createElement('div')];
+  const [header, content] = Array(2).fill().map((elem) => elem = document.createElement('div'));
+  [header.textContent, content.textContent] = [`${key.charAt(0).toUpperCase()}${key.slice(1)}:`,value]
+  header.classList.add('cell-header');
+  content.classList.add('cell-content');
 
   const divEntry = document.createElement('div');
   divEntry.classList.add(`'book-${key}`);
 
   divEntry.appendChild(header);
-  divEntry.appendChild(cell);
+  divEntry.appendChild(content);
 
   return divEntry;
 }
