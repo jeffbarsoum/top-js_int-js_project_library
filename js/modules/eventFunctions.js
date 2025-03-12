@@ -103,9 +103,12 @@ const functions = {
   }
 
   function toggleIsRead(e) {
-    console.log('isRead toggler launched...')
-    console.log(e.target.closest('.book-entry'))
-    const bookElement = e.target.closest('.book-entry')
+    console.log('isRead toggler launched...');
+    console.log(e.target.closest('.book-entry'));
+    const bookElement = e.target.closest('.book-entry');
+    const bookFooter = bookElement.querySelector('.card-footer');
+    console.log('bookfooter:')
+    console.log(bookFooter)
     const book = lib.library.getBook(bookElement.id);
     console.log('book before toggle:')
     console.log(book)
@@ -113,12 +116,15 @@ const functions = {
     console.log('book after toggle:')
     console.log(book)
 
+    
     switch (book.isRead) {
       case true:
         bookElement.classList.remove('is-read');
+        bookFooter.textContent = '';
         return;
       case false:
         bookElement.classList.add('is-read');
+        bookFooter.textContent = 'You read this! Neat.'
         return;
     }
   }
