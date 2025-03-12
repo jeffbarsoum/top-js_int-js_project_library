@@ -64,6 +64,7 @@ function bookEntry(book) {
     }
   }
   const removeButton = document.createElement('button');
+  removeButton.classList.add('card-remove');
   removeButton.textContent = 'Remove Book'
   removeButton.dataset.events = 'click-removeBook';
 
