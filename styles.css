@@ -66,7 +66,10 @@
 
     --header-font-size: 2rem;
     --footer-font-size: 1.5rem;
-    --sidebar-font-size: 1.5rem
+    --sidebar-font-size: 1.5rem;
+
+    --tooltip-width: 300px;
+    --tooltip-padding: 5px
 
   }
 
@@ -263,6 +266,100 @@
     grid-template-columns: 1fr 4fr;
   }
 
+  /*https://www.w3schools.com/css/css_tooltip.asp*/
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    /* border-bottom: 1px dotted black; */
+  }
+  
+  .tooltip .tooltiptext {
+    /* visibility: hidden; */
+    display: block;
+    grid-area: tooltiptext;
+    opacity: 0;
+    /* width: var(--tooltip-width); */
+    background-color: var(--color-mid-green);
+    color: var(--color-light-grey);
+    border-radius: 6px;
+    padding: 5px 0;
+    margin: 0px auto;
+    position: absolute;
+    text-align: center;
+    white-space: nowrap;
+    width: 100%;
+    z-index: 1;
+    transition: opacity 300ms;
+  }
+  
+  .tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    /* position: relative;
+    display: inline-block; */
+    /* top: 100%;
+    left: 50%; */
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    opacity: 0;
+    transition: opacity 300ms;
+  }
+  
+  .tooltip:hover .tooltiptext,
+  .tooltip:hover .tooltiptext::after {
+    /* visibility: visible; */
+    opacity: 0.90;
+  }
 
+  .tooltip-top {
+    bottom: 150%;
+    left: 50%;
+    margin-left: calc(-var(--tooltip-width) * 0.5);
+  }
 
+  .tooltip-top .tooltiptext::after {
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-color: black transparent transparent transparent;
+  }
+
+  .tooltip-left {
+    top: calc(-var(--tooltip-padding));
+    right: 105%;
+    margin-left: calc(-var(--tooltip-width) * 0.5);
+  }
+
+  .tooltip-left .tooltiptext::after {
+    top: 50%;
+    left: 100%;
+    margin-top: calc(-var(--tooltip-padding));;
+    border-color: transparent transparent transparent black;
+  }
+
+  .tooltip-right {
+    top: calc(-var(--tooltip-padding));;
+    left: 50%;
+    margin-left: calc(-var(--tooltip-width) * 0.5);
+  }
+
+  .tooltip-right .tooltiptext::after {
+    top: 50%;
+    right: 100%;
+    margin-top: calc(-var(--tooltip-padding));;
+    border-color: transparent black transparent transparent;
+  }
+
+  .tooltip-bottom .tooltiptext {
+    top: 155%;
+    /* margin-left: calc(-var(--tooltip-width) * 0.5); */
+  }
+
+  .tooltip-bottom .tooltiptext::after {
+    bottom: 100%;
+    left: 50%;
+    /* margin-left: calc(-1.0 * var(--tooltip-padding));; */
+    border-color: transparent transparent var(--color-mid-grey) transparent;
+  }
  

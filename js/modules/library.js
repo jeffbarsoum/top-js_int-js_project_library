@@ -40,8 +40,14 @@ function bookEntry(book) {
   bookDiv.classList.add('book-entry');
 
   const linkDiv = document.createElement('div');
-  linkDiv.classList.add('card-link');
+  linkDiv.classList.add('card-link', 'tooltip', 'tooltip-bottom');
   linkDiv.setAttribute('data-events', 'click-toggleIsRead')
+
+  const toolTip = document.createElement('span');
+  toolTip.classList.add('tooltiptext');
+  toolTip.innerText = "Click to toggle 'read' status"
+  linkDiv.appendChild(toolTip);
+
   
   for (const [key, input] of Object.entries(book)) {
     console.log([key, input]);
