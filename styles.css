@@ -414,7 +414,7 @@
   }
 
   .tooltip-bottom .tooltiptext {
-    top: 155%;
+    top: 175%;
     /* margin-left: calc(-var(--tooltip-width) * 0.5); */
   }
 
