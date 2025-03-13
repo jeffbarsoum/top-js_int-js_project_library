@@ -1,0 +1,8 @@
+.icon {
+    filter: var(--color-filter-light-green);
+  }
+
+.header-logo {
+    object-fit: contain;
+    max-width: 75px;
+}

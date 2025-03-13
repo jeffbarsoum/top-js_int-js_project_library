@@ -1,0 +1,66 @@
+.page {
+    font-family: 'Infini';
+    height: 100vh;
+    width: 100vw;
+    color: var(--color-light-green);
+    display: grid;
+    grid-template: 1fr 5fr / minmax(min-content, 1fr) 4fr;
+    grid-template-areas: 
+        "header header"
+        "sidebar library"
+        "sidebar footer";
+  }
+
+  .page > .header,
+  .page > .sidebar,
+  .page > .footer {
+    font-family: 'Bagnard';
+  }
+
+  .page > .header {
+    grid-area: header;
+    font-size: var(--header-font-size);
+    background-color: var(--color-dark-purple);
+    display: grid;
+    grid-template-columns: minmax(min-content, 1fr) 4fr;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    /* white-space: nowrap; */
+  }
+
+
+
+  .sidebar {
+    grid-area: sidebar;
+    background-color: var(--color-dark-green);
+    font-size: var(--sidebar-font-size);
+    display: grid;
+    grid-template-columns: minmax(min-content, 1fr);
+    white-space: nowrap;
+    padding: 20px;
+    align-items: start;
+    text-align: center;
+    max-height: 100%;
+    overflow:auto
+  }
+
+  #library {
+    grid-area: library;
+    background-color: var(--color-dark-blue);
+    display: grid;
+    grid-template: repeat(auto-fill, minmax(180px, 1fr)) / 1fr;
+    gap: var(--library-gap);
+    align-items: start;
+    overflow: auto;
+    /* max-height: max-content; */
+  }
+
+  .page > .footer {
+    grid-area: footer;
+    font-size: var(--footer-font-size);
+    background-color: var(--color-dark-purple);
+    text-align: center;
+    white-space: nowrap;
+  }

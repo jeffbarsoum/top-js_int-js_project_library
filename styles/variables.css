@@ -1,0 +1,27 @@
+:root {
+    --color-dark-purple: #69306D;
+    --color-dark-green: #133F2A;
+    --color-dark-blue: #0E103D;
+    
+    --color-light-white: #F0F7F4;
+    --color-light-green: #A2E3C4;
+    --color-light-grey: #B3BFB8;
+    --color-filter-light-green: brightness(0) saturate(100%) invert(94%) sepia(8%) saturate(1291%) hue-rotate(84deg) brightness(96%) contrast(85%);
+
+    --color-mid-grey: #7E8D85;
+    --color-mid-green: #3C493F;
+
+    --library-gap:20px;
+    --book-gap: 20px;
+
+    --border-radius: 10px;
+    --button-radius: 25px;
+
+    --header-font-size: 2rem;
+    --footer-font-size: 1.5rem;
+    --sidebar-font-size: 1.5rem;
+
+    --tooltip-width: 300px;
+    --tooltip-padding: 5px
+
+  }
