@@ -30,9 +30,10 @@ const functions = {
     // console.log('display library launched...')
 
     // first, stash library if not already stashed
-    stashLibrary()
+    stashLibrary();
 
     // next, add all books from library object to library div
+    const libraryElement = document.getElementById('library');
     for (const book of Object.values(library.getAllBooks())) {
       libraryElement.appendChild(book.div);
     }
@@ -40,7 +41,7 @@ const functions = {
 
   function stashLibrary() {
     // replace children with nothing, clears all content from library
-    document.getElementById('library').replaceChildren()
+    document.getElementById('library').replaceChildren();
   }
 
   // add form validation!
