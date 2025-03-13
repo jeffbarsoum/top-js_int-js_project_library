@@ -60,7 +60,7 @@
     --color-mid-green: #3C493F;
 
     --library-gap:20px;
-    --book-gap: 5px;
+    --book-gap: 20px;
 
     --border-radius: 10px;
     --button-radius: 25px;
@@ -424,4 +424,4 @@
     /* margin-left: calc(-1.0 * var(--tooltip-padding));; */
     border-color: transparent transparent var(--color-mid-grey) transparent;
   }
- 
+  
