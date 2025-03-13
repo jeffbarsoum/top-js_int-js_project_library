@@ -1,5 +1,3 @@
-import * as eventFunctions from './modules/eventFunctions.js';
+import { addEventListeners } from './modules/eventHandler.js';
 
-eventFunctions.addEventListeners();
-
-
+addEventListeners();
