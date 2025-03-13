@@ -77,7 +77,7 @@
   .page {
     font-family: 'Infini';
     height: 100vh;
-    
+    width: 100vw;
     color: var(--color-light-green);
     display: grid;
     grid-template: 1fr 5fr / minmax(min-content, 1fr) 4fr;
@@ -108,7 +108,7 @@
     align-items: center;
     justify-items: center;
     text-align: center;
-    white-space: nowrap;
+    /* white-space: nowrap; */
   }
 
   .header-logo {
@@ -159,10 +159,11 @@
     grid-area: library;
     background-color: var(--color-dark-blue);
     display: grid;
-    grid-template: repeat(auto-fill, minmax(80px, 1fr)) / 1fr;
+    grid-template: repeat(auto-fill, minmax(180px, 1fr)) / 1fr;
     gap: var(--library-gap);
     align-items: start;
     overflow: auto;
+    /* max-height: max-content; */
   }
 
   .book-entry {
