@@ -130,23 +130,27 @@
     overflow:auto
   }
 
-  .sidebar-button {
+  .sidebar-button,
+  button {
     text-decoration: none;
     pointer-events: fill;
     border-radius: var(--button-radius);
     box-shadow: 0 2px var(--color-dark-blue);
     background-color: var(--color-light-green);
     color: var(--color-dark-green);
+    margin: 20px;
   }
 
-  .sidebar-button:hover {
+  .sidebar-button:hover,
+  button:hover {
     box-shadow: 0 5px var(--color-dark-blue);
     transform: translateY(-3px);
     transition: 100ms;
     cursor: pointer;
   }
 
-  .sidebar-button:active {
+  .sidebar-button:active,
+  button:active {
     background-color: var(--color-dark-blue);
     color: var(--color-light-green);
     transform: translateY(4px);
